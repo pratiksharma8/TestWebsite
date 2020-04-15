@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <title>Food Codes</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-md  fixed-top maine-menu">
+    <div class="container">
+      <button class="navbar-toggler ml-auto" data-target="#my-nav" onclick="myFunction(this)" data-toggle="collapse"> <span class="bar1"></span> <span class="bar2"></span> <span class="bar3"></span> </button>
+      <div id="my-nav" class="collapse navbar-collapse">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item active"> <a class="nav-link" href="index.html">Home</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="{% url 'blog-about' %}" tabindex="-1" aria-disabled="true">About</a></li>
+          <li class="nav-item"> <a class="nav-link" href="{% url 'blog-home' %}" tabindex="-1" aria-disabled="true">Blog</a></li>
+          <li class="nav-item"> <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Download</a></li>
+          {% if user.is_authenticated %}
+          <li class="nav-item"> <a class="nav-link" href="{% url 'profile' %}" tabindex="-1" aria-disabled="true">Profile</a></li>
+          <li class="nav-item"> <a class="nav-link" href="{% url 'post-create' %}" tabindex="-1" aria-disabled="true">Post</a></li>
+          <li class="nav-item"> <a class="nav-link" href="{% url 'logout' %}" tabindex="-1" aria-disabled="true">Logout</a></li>
+          {% else %}
+          <li class="nav-item"> <a class="nav-link" href="{% url 'login' %}" tabindex="-1" aria-disabled="true">Login</a></li>
+          <li class="nav-item"> <a class="nav-link" href="{% url 'register' %}" tabindex="-1" aria-disabled="true">Register</a></li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container-fluid fh5co-home-banner">
+    <div class="card">
+      <div class="card-img-overlay" style="position: static;">
+        <div class="center-text">
+          <h2 class="card-title"></h2>
+          <div class="blog-content-bckg">
+            <div class="blog-content-inner">
+              <div class="container-fluid">
+                {% block content %} {% endblock %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+<footer class="container-fluid p-0 pr-0" id="nepal">
+  <div class="row mr-0 ml-0">
+  <div class="col-md-8 pr-0 pl-0 footerimg">
+  <img src="{% static 'img/Logo.png' %}">
+  </div>
+  <div class="col-md-4 content-us">
+  <div class="contact-form">
+  <h3 class="text-uppercase">Contact</h3>
+  <input type="text" class="form-control" placeholder="Your Name">
+  <input type="text" class="form-control" placeholder="Your Email">
+  <textarea class="form-control" placeholder="Your Message"></textarea>
+  <button type="submit">Send</button>
+  </div>
+  </div>
+  </div>
+<div class="copy pt-4 pb-4">
+<p><a href="#" target="_blank"> &copy; 2020 Food Codes</a>  &nbsp;  |  &nbsp; Design by Pratik Sharma</p>
+</div>
+</footer>
+
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="{% static 'js/jquery-3.3.1.slim.min.js' %}"></script>
+  <script src="{% static 'js/popper.min.js' %}" ></script>
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+  <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>
+
+
